@@ -20,7 +20,6 @@ public class BinarySearch {
         if (high >= low) {
 
             int mid = low + (high - low) / 2;
-            Arrays.binarySearch()
             if(arr[mid] == key)
                 return mid;
 

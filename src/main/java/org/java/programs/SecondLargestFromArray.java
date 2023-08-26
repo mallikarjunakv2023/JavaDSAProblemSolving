@@ -8,7 +8,7 @@ public class SecondLargestFromArray {
         int secMax = 0;
 
         for(int i = 0; i<array.length; i++){
-            if(array.length <= 2)
+            if(array.length <= 1)
                 break;
             if(firstMax <= array[i] ){
                 secMax = firstMax;
