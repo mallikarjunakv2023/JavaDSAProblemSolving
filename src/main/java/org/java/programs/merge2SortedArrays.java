@@ -6,14 +6,28 @@ import java.util.Arrays;
 
 class HelloWorld {
     public static void main(String[] args) {
-        int[] arr1 = {1, 2, 5, 7, 9};
+        int[] arr1 = {1, 2, 5, 7, 0, 0, 0, 0, 0};
         int[] arr2 = {2,4,6,8,10};
-        HelloWorld hw = new HelloWorld();
-        int[] sortedArray = merge2SortedArrays(arr1, arr2);
+        int[] sortedArray = merge2SortedArrays2(arr1, arr2, 4, 5);
         System.out.println("Sorted Array : " +Arrays.toString(sortedArray));
     }
 
+    static int[] merge2SortedArrays2(int[] arr1, int[] arr2, int m, int n){
+        int len1 = m;
+        int len2 = n;
+        int i =len1-1, j=len2-1, k =m+n - 1;
 
+        while(j>=0 && i>=0){
+            if( arr1[i] > arr2[j]){
+                arr1[k--] = arr1[i--];
+            }
+            else{
+                arr1[k--] = arr2[j--];
+            }
+        }
+        System.out.println("Sorted Array : " +Arrays.toString(arr1));
+        return arr1;
+    }
     static int[] merge2SortedArrays(int[] arr1, int[] arr2){
         int[] sortedArr = new int[arr1.length + arr2.length];
         if(arr1.length == 0)

@@ -1,13 +1,22 @@
 package org.java.programs;
 
+import java.util.Arrays;
+
 public class SecondLargestSmallestInArray {
     public static void main(String[] args){
         int[] array = {2,5,3,7,9,8};
-        int secLargest = secondLargestSmallestInArray(array);
+        int secLargest = secondLargestSmallestInArrayUsingStream(array);
         System.out.println("Second largest : "+secLargest);
 
         int secSmallest = secondSmallestInArray(array);
         System.out.println("Second smallest : "+secSmallest);
+    }
+
+    private static int secondLargestSmallestInArrayUsingStream(int[] array){
+        int max = Arrays.stream(array).max().getAsInt();
+        int secLargest = Arrays.stream(array).filter(number -> number != max ).max().getAsInt();
+        //int map = Arrays.stream(array).map()
+        return secLargest;
     }
 
     private static int secondLargestSmallestInArray(int[] array) {
