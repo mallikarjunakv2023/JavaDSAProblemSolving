@@ -6,7 +6,7 @@ public class BinarySearch {
     public static void main(String[] args) {
 
         int arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-        int key = 100;
+        int key = 10;
 
         int index = findKey(arr, 0, arr.length-1, key);
 
