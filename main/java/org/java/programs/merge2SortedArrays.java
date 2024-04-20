@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 class HelloWorld {
     public static void main(String[] args) {
-        int[] arr1 = {1, 2, 5, 7, 0, 0, 0, 0, 0};
-        int[] arr2 = {2,4,6,8,10};
-        int[] sortedArray = merge2SortedArrays2(arr1, arr2, 4, 5);
+        int[] arr1 = {0};
+        int[] arr2 = {2};
+        int[] sortedArray = merge2SortedArrays2(arr1, arr2, 0, 1);
         System.out.println("Sorted Array : " +Arrays.toString(sortedArray));
     }
 
