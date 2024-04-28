@@ -3,7 +3,6 @@ package org.CollectionAndDSA.DSAImplementation;
 public class StackLL {
     /**
      * Top
-     * Size
      * Push
      * pop
      * poll

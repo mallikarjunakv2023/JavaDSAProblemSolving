@@ -10,11 +10,11 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
-        linkedList.add(10);
+        linkedList.add(50);
         linkedList.add(20);
-        linkedList.add(20);
+        linkedList.add(60);
         linkedList.add(30);
-        linkedList.add(40);
+        linkedList.add(10);
         linkedList.add(40);
         //linkedList.delete(50);
         //linkedList.delete(30);
@@ -38,6 +38,12 @@ public class LinkedList {
 
         LinkedList ans = linkedList.mergeLinkedLists(linkedList1,linkedList2);
         ans.print();
+
+        //Happy Number
+        System.out.println("Happy number : "+isHappyNumber(29));
+
+        //sort linked list
+        //linkedList.sortList(linkedList.head);
 
 
     }
@@ -160,5 +166,76 @@ public class LinkedList {
             tail = tail.next;
         }
         return node.next;
+    }
+
+
+    /**
+     * Happy Number using LL
+     */
+
+
+    public static boolean isHappyNumber(int num){
+        int slow = num;
+        int fast = num;
+        do {
+            slow = squareRoot(slow);
+            fast = squareRoot(squareRoot(fast));
+        }while (slow != fast);
+
+        if (slow == 1)
+            return true;
+        return false;
+    }
+
+    public static int squareRoot(int number){
+        int ans = 0;
+        while(number > 0){
+            int rem = number % 10;
+            ans += rem * rem;
+            number /= 10;
+        }
+        return ans;
+    }
+
+    /**
+     * Sort LL using merge sort
+     */
+
+    public ListNode sortList(ListNode head){
+        ListNode node = head;
+
+        if(node == null || node.next == null)
+            return head;
+
+        ListNode mid = getMid(head);
+        ListNode left = sortList(head);
+        ListNode right = sortList(mid);
+
+        return mergeTwoLists(left, right);
+    }
+
+    ListNode getMid(ListNode head) {
+        ListNode midPrev = null;
+        while (head != null && head.next != null) {
+            if(midPrev == null)
+                midPrev = head;
+            else
+                midPrev = midPrev.next;
+            head = head.next.next;
+        }
+        ListNode mid = midPrev.next;
+        midPrev.next = null;
+        return mid;
+    }
+
+    public static ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
