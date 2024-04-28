@@ -144,7 +144,6 @@ public class RestExamplesSuite {
      * @Data
      */
 
-
     @Test
     public void hamcrestCore() {
 
