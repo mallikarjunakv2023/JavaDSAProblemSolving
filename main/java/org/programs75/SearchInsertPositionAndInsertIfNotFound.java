@@ -4,7 +4,7 @@ public class SearchInsertPositionAndInsertIfNotFound {
 
     public static void main(String[] args){
         int[] arr = {1,3,4,5};
-        int key = 4;
+        int key = 2;
         System.out.println("Insert position : " + findOrInsert(arr, key));
     }
 

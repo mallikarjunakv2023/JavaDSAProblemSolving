@@ -78,7 +78,7 @@ public class RestExamplesSuite {
                 .headers(headerMap)
                 .queryParam("tenant_id", "026d4b96-4ae6-4f1b-858d-4c3190a6a596")
                 .get(URL);
-        Assert.assertEquals(response.getBody().asString(), CoreMatchers.is("DIRECT_DEBIT"));
+        //Assert.assertEquals(response.getBody(), CoreMatchers.is("DIRECT_DEBIT"));
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(jsonPath.get("paymentMethod"), "DIRECT_DEBIT");
     }

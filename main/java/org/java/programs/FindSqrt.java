@@ -3,7 +3,7 @@ package org.java.programs;
 public class FindSqrt {
 
     public int mySqrt(int x) {
-        if(x==0 || x==1)
+        if(x <=1 )
             return x;
 
         for(int i=1;i<=x/2;i++){

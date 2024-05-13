@@ -6,11 +6,26 @@ public class AllSortingAlgo {
 
     public static void main(String [] agrs){
         int[] arr = {1,3,2,5,6,3,7,0,11,8};
+
+        //Bubble sort : 2 nested for loops, 0 to n-1 and 0 to n-i-1,
+        // and flag to check if array is sorted to break outer loop
         //System.out.println("Sorted arr : "+ Arrays.toString(bubbleSort(arr)));
+
+        //Selection sort : 2 nested loops, use inner loop to find smallest index(min)
+        // and swap with outer loops ith element
         //System.out.println("Sorted arr : "+ Arrays.toString(selectionSort(arr)));
+
+        //Insertion sort : start outer loop i from 1, start inner while loop j to compare with left array, shift ele to right if its greater,
+        // atlast move temp to j
         //System.out.println("Sorted arr : "+ Arrays.toString(insertionSort(arr)));
-        //System.out.println("Sorted arr : "+ Arrays.toString(mergeSort(arr)));
-        System.out.println("Sorted arr : "+ Arrays.toString(quickSort(arr, 0, arr.length-1)));
+
+        //create a method sort, call divide method with arr, 0 to n-1
+        //inside divide method, check if low < high and find the mid, call divide method for both both left and right
+        //after 2 divide method, call copyMergeAnd Sort for arr, low, mid, high
+        //inside copyMergeAndSort, copy whole arr to temp array, while loop to check i <= mid, and j <= high
+        //put the smallest ele to arr using index k, copy rem ele of right/left using while loop
+        System.out.println("Sorted arr : "+ Arrays.toString(mergeSort(arr)));
+        //System.out.println("Sorted arr : "+ Arrays.toString(quickSort(arr, 0, arr.length-1)));
     }
     /*
         QUICK SORT
@@ -99,7 +114,7 @@ public class AllSortingAlgo {
     INSERTION SORT
 
  */
-    //find the pos of the ele from the left arr and isert it,
+    //find the pos of the ele from the left arr and insert it,
     // move the elements to right while checking the > inside while loop
     private static int[] insertionSort(int[] arr) {
         int temp;

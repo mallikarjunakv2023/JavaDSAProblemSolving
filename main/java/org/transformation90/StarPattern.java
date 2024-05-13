@@ -25,6 +25,7 @@ public class StarPattern {
         1. Increasing space
         2. Decreasing star with one less col
         3. Decreasing star
+        *
         4. Decreasing space with one less col
         5. Increasing star with +1 col
         6. Increasing star

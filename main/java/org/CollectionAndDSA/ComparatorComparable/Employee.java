@@ -26,9 +26,10 @@ public class Employee implements Comparable<Employee> {
         Comparator<Employee> com = (e1, e2) -> {
             if(e1.id < e2.id){
                 return -1;
-            }else{
+            }else if(e1.id > e2.id){
                 return 1;
             }
+            return 0;
         };
         Arrays.sort(empArr, com);
         System.out.println("Array : "+Arrays.toString(empArr));

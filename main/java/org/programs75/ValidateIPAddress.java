@@ -18,8 +18,6 @@ public class ValidateIPAddress {
                 + zeroTo255;
 
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(ip);
-
-        return m.matches();
+        return p.matcher(ip).matches();
     }
 }
