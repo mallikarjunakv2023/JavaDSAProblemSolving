@@ -14,7 +14,6 @@ public class AllSortingAlgo {
         //Selection sort : 2 nested loops, use inner loop to find smallest index(min)
         // and swap with outer loops ith element
         //System.out.println("Sorted arr : "+ Arrays.toString(selectionSort(arr)));
-
         //Insertion sort : start outer loop i from 1, start inner while loop j to compare with left array, shift ele to right if its greater,
         // atlast move temp to j
         //System.out.println("Sorted arr : "+ Arrays.toString(insertionSort(arr)));
