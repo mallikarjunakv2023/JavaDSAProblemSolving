@@ -33,8 +33,8 @@ public class FruitIntoBasket {
                 maxLen = Math.max(maxLen, r - l + 1);
             }
             r++;
-
         }
         return maxLen;
+
     }
 }
