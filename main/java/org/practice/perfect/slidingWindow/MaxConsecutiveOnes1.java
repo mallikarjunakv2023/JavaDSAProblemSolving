@@ -20,6 +20,7 @@ public class MaxConsecutiveOnes1 {
                 r++;
             }
         }
+
         return maxLen;
     }
 }
