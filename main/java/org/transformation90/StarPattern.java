@@ -2,7 +2,7 @@ package org.transformation90;
 
 public class StarPattern {
     public static void main(String[] args){
-        xPattern(5);
+        //xPattern(5);
     }
 
     private static void xPattern(int n) {

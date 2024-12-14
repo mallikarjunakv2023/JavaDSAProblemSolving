@@ -1,9 +1,7 @@
-/out/
 /.idea
 .idea
 build
 build/
-out
 target
 *.class
 *.jar
@@ -17,7 +15,5 @@ target
 **.settings
 **.factorypath
 bin/
-
-.scannerwork
 .gradle
 storage/
