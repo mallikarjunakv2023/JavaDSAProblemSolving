@@ -16,7 +16,6 @@ public class CountVowelStrings002 {
                 Prefix[i + 1]++;
             }
         }
-
         int[] ANS = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
             ANS[i] = Prefix[queries[i][1] + 1] - Prefix[queries[i][0]];
