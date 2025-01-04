@@ -2,6 +2,7 @@ package org.practice.perfect.matrix;
 
 public class SetMatrixZeros {
     public void setZeroes(int[][] matrix) {
+
         int m = matrix.length, n = matrix[0].length;
         boolean firstRowZero = false, firstColZero = false;
 
