@@ -1,6 +1,6 @@
 /out
 out
-/.idea
+
 .idea
 build
 build/
@@ -12,6 +12,7 @@ target
 *.pem
 *.log
 *.iml
+*.xml
 **.classpath
 **.project
 **.settings
