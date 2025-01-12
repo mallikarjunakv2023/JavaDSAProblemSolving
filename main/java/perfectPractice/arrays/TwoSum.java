@@ -1,4 +1,4 @@
-package perfectPractice;
+package perfectPractice.arrays;
 
 import java.util.HashMap;
 

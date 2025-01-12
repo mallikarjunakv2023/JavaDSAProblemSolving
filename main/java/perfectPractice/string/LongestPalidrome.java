@@ -1,4 +1,4 @@
-package perfectPractice;
+package perfectPractice.string;
 
 import java.util.HashSet;
 

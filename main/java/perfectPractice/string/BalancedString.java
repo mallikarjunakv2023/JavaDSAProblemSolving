@@ -1,4 +1,4 @@
-package perfectPractice;
+package perfectPractice.string;
 
 public class BalancedString {
     public boolean isBalanced(String str) {
