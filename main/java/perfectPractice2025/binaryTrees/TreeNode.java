@@ -1,4 +1,4 @@
-package programs75;
+package perfectPractice2025.binaryTrees;
 
 public class TreeNode {
     public int val;
@@ -12,7 +12,7 @@ public class TreeNode {
         this.val = val;
     }
 
-    public TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(int val, programs75.TreeNode left, programs75.TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
