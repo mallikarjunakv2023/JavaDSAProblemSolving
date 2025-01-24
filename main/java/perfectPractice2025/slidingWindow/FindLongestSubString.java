@@ -1,9 +1,31 @@
 package perfectPractice2025.slidingWindow;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class FindLongestSubString {
+
+    public int lengthOfLongestSubstring2(String s) {
+
+        int[] chars = new int[256];
+        Arrays.fill(chars, -1);
+
+        int l = 0;
+        int r = 0;
+        int maxLen = 0;
+
+        while (r < s.length()) {
+            if (chars[s.charAt(r)] >= l) {
+                l = chars[s.charAt(r)] + 1;
+            }
+            maxLen = Math.max(maxLen, r - l + 1);
+
+            chars[s.charAt(r)] = r;
+            r++;
+        }
+        return maxLen;
+    }
 
     //Brute Force - with O(n^2)
     public int lengthOfLongestSubstring(String s) {
