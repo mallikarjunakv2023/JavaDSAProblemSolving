@@ -6,7 +6,7 @@ class StringPalindrome {
         String str = "aMalalamaaaaa";
         boolean revString = stringPalindrome(str);
 
-        System.out.println("stringPalindrome : "+revString);
+        System.out.println("is palindrome ? : "+revString);
     }
 
     private static boolean stringPalindrome(String str){
@@ -15,13 +15,14 @@ class StringPalindrome {
             return isPalindrome;
 
 
-
-        for(int i = str.length()-1, j = 0; i > str.length()/2; i--, j++){
+        int j = 0;
+        for(int i = str.length()-1; i > str.length()/2; i--){
             if(str.charAt(i) == str.charAt(j)){
                 isPalindrome = true;
+                j++;
             }
             else
-                isPalindrome = false;
+                return false;
         }
 
         return isPalindrome;

@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class FibonocciNumber {
     public static void main(String[] args){
-        //System.out.println("Fibinocci number for n is : " + fibinocciNumber(6));
-        System.out.println("Fibinocci number for n is : " + fibinocciSeries(6).length);
-        System.out.println("Fibinocci number for n is : " + fib(6));
+        //System.out.println("Fibonacci number for n is : " + fibinocciNumber(6));
+        //System.out.println("Fibonacci number for n is : " + fibinocciSeries(6).length);
+        System.out.println("Fibonacci number for n is : " + fib(6));
     }
 
-    private static int[] fibinocciSeries(int n) {
+    private static int[] fibonacciSeries(int n) {
         int count = 0;
         int[] arr = new int[n];
         int a = 0;
@@ -44,7 +44,7 @@ public class FibonocciNumber {
     }
 
     //0, 1, 1, 2, 3, 5, 8, 13
-    public static void fibinocciNumber(int n){
+    public static void fibonacciNumber(int n){
         int a = 0;
         int b = 1;
         for(int i = 0; i < n; i++){
