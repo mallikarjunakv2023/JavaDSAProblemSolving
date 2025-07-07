@@ -4,6 +4,59 @@ import programs75.ListNode;
 
 public class LinkedList {
 
+    Node head;
+    Node tail;
+
+    class Node{
+        int value;
+        Node next;
+        Node(int value){
+            this.value = value;
+            this.next = null;
+        }
+    }
+
+    public void add(int value){
+        Node next = new Node(value);
+        if(head == null) {
+            head = next;
+            tail = next;
+        }
+        else {
+            tail.next = next;
+            tail = next;
+        }
+    }
+    public void delete(int value){
+        while (head != null && head.value == value) {
+            System.out.println("Deleted " + head.value);
+            head = head.next;
+        }
+        Node current = head;
+        boolean flag = false;
+        while(current.next != null){
+            if (current.next.value == value){
+                Node temp = current.next;
+                current.next = current.next.next;
+                System.out.println("Deleted "+temp.value);
+                flag = true;
+                break;
+            }
+            current = current.next;
+        }
+        if (!flag)
+            System.out.println("Not found");
+    }
+
+    public void print(){
+        Node node = head;
+        System.out.println();
+        while (node != null){
+            System.out.print(node.value + " ");
+            node = node.next;
+        }
+    }
+
     LinkedList(){
         head = null;
     }
@@ -13,10 +66,11 @@ public class LinkedList {
         linkedList.add(50);
         linkedList.add(20);
         linkedList.add(60);
+        linkedList.add(40);
         linkedList.add(30);
         linkedList.add(10);
         linkedList.add(40);
-        //linkedList.delete(50);
+        linkedList.delete(50);
         //linkedList.delete(30);
         linkedList.print();
         linkedList.removeDuplicates();
@@ -47,67 +101,25 @@ public class LinkedList {
 
 
     }
-    Node head;
-    Node tail;
 
-    class Node{
-        int value;
-        Node next;
-        Node(int value){
-            this.value = value;
-            this.next = null;
-        }
-    }
 
-    public void add(int value){
-        Node next = new Node(value);
-        if(head == null) {
-            head = next;
-            tail = next;
-        }
-        else {
-            tail.next = next;
-            tail = next;
-        }
-    }
-    public void delete(int value){
+    public void removeDuplicates() {
         Node current = head;
-        boolean flag = false;
-        while(current.next != null){
-            if (current.next.value == value){
-                Node temp = current.next;
-                current.next = current.next.next;
-                System.out.println("Deleted "+temp.value);
-                flag = true;
-                break;
+        while (current != null && current.next != null) {
+            Node runner = current;
+            while (runner.next != null) {
+                if (current.value == runner.next.value) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
+                }
             }
             current = current.next;
         }
-        if (!flag)
-            System.out.println("Not found");
-    }
-
-    public void print(){
-        Node node = head;
-        System.out.println();
-        while (node != null){
-            System.out.print(node.value + " ");
-            node = node.next;
+        tail = head;
+        while (tail != null && tail.next != null) {
+            tail = tail.next;
         }
-    }
-
-    public void removeDuplicates(){
-        Node node = head;
-        while(node.next != null){
-            if(node.value == node.next.value){
-                node.next = node.next.next;
-            }
-            else {
-                node = node.next;
-            }
-        }
-        tail = node;
-        tail.next = null;
     }
 
     public LinkedList mergeLinkedLists(LinkedList one, LinkedList two){

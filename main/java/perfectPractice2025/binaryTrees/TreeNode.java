@@ -12,9 +12,9 @@ public class TreeNode {
         this.val = val;
     }
 
-    public TreeNode(int val, programs75.TreeNode left, programs75.TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+//    public TreeNode(int val, programs75.TreeNode left, programs75.TreeNode right) {
+//        this.val = val;
+//        this.left = left;
+//        this.right = right;
+//    }
 }

@@ -18,9 +18,7 @@ public class Explore {
         map.put(2, "Arjun");
         Set<Map.Entry<Integer, String>> entrySet = map.entrySet();
         System.out.println(entrySet);
-        Collection<String> values = map.values();
-        Set<Integer> keys = map.keySet();
-        System.out.println(keys);
+        List<String> values = (List<String>) map.values();
         System.out.println(values);
     }
 }

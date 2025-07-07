@@ -20,8 +20,8 @@ public class ConstructKPalindromes {
             if (count % 2 == 1) {
                 oddCount++;
             }
-        }
 
+    }
         // Return if the number of odd frequencies is less than or equal to k
         return oddCount <= k;
     }

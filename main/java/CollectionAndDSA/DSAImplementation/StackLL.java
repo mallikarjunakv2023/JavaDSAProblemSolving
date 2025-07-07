@@ -58,6 +58,7 @@ public class StackLL {
         stackLL.push(40);
         stackLL.push(30);
         //stackLL.display();
+        stackLL.pop();
         stackLL.push(90);
         stackLL.push(90);
         stackLL.display();

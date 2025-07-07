@@ -1,0 +1,132 @@
+
+//Create a TC which specifies dataProvider method name and class name
+
+@Test(dataProvider = "requestDataProvider", dataProviderClass = TestDataProvider.class)
+    public void testRequestObject(RequestObject request) {
+        // You can now use the RequestObject in your test
+        System.out.println("Testing with: " + request);
+    }
+
+//Create a POJO object which has the parameyters to hold JSON 
+
+public class RequestObject {
+    private String username;
+    private String password;
+    private String email;
+
+    // Constructor
+    public RequestObject(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+}
+
+//Create class which holds all dataProvider methods related to specific module
+
+public class TestDataProvider {
+
+    @DataProvider(name = "requestDataProvider")
+    public Object[][] getDataFromJson() throws IOException {
+        // Read JSON data from file
+        FileReader reader = new FileReader("path/to/data.json");
+
+        // Use Gson to parse the JSON data into a List of RequestObjects
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<RequestObject>>(){}.getType();
+        List<RequestObject> requestData = gson.fromJson(reader, listType);
+        
+        // Close the reader
+        reader.close();
+        
+        // Convert List to 2D Object array (TestNG DataProvider format)
+        Object[][] data = new Object[requestData.size()][1];
+        for (int i = 0; i < requestData.size(); i++) {
+            data[i][0] = requestData.get(i); // Each row contains a single RequestObject
+        }
+
+        return data;
+    }
+}
+
+
+//write an exmple JSON which has an array of testCase data
+
+[
+  {
+    "username": "user1",
+    "password": "password1",
+    "email": "user1@example.com"
+  },
+  {
+    "username": "user2",
+    "password": "password2",
+    "email": "user2@example.com"
+  }
+]
+
+
+
+
+/////////////////////////////////////////////////
+//Singleton example
+
+public class SingletonDataHandler extends VariableHelper {
+    private static SingletonDataHandler instance;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
+    private SingletonDataHandler() {}
+
+    public static synchronized SingletonDataHandler getInstance() {
+        if (instance == null) {
+            instance = new SingletonDataHandler();
+        }
+        return instance;
+    }
+}
+
+
+////////////////////////////////////////////////
+//Builder pattern
+
+RequestObject request = new RequestObject.Builder()
+                    .setUsername("john_doe")
+                    .setPassword("securePassword123")
+                    .setEmail("john.doe@example.com")
+                    .build();
+
+return RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(requestObject.toJson()) // Convert RequestObject to JSON string
+                .post(url);
+
+///////////////////////////////////////////////
+//Jackson
+
+// Create an ObjectMapper instance
+ObjectMapper objectMapper = new ObjectMapper();
+
+// Create a Person object
+Person person = new Person("Alice", 30);
+
+// Serialize to JSON (Java object to JSON string)
+String jsonString = objectMapper.writeValueAsString(person);
+System.out.println("Serialized JSON (Jackson): " + jsonString);
+
+// Deserialize from JSON (JSON string to Java object)
+Person deserializedPerson = objectMapper.readValue(jsonString, Person.class);
+
+//Gson
+
+Gson gson = new Gson();
+
+        // Create a Person object
+        Person person = new Person("Alice", 30);
+
+        // Serialize to JSON (Java object to JSON string)
+        String jsonString = gson.toJson(person);
+        System.out.println("Serialized JSON (Gson): " + jsonString);
+
+        // Deserialize from JSON (JSON string to Java object)
+        Person deserializedPerson = gson.fromJson(jsonString, Person.class);
+
